@@ -1,6 +1,16 @@
 package com.alvaro.retonapptilus.repository;
-
+/*********************
+ *
+ *
+ * Interface repositorio de la Entity PricesModel
+ * 
+ * 
+ * (Alvaro B.S. octubre 2022)
+ *
+ *
+ */
 import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
@@ -15,17 +25,17 @@ public interface PricesRepository extends CrudRepository<PricesModel,Long> {
 
 	// query concreta para el servicio pedido
 	@Query("from PricesModel p "
-			+ "where p.col002StartDate < :fecha "
-			+ "  and p.col003EndDate   > :fecha "
-			+ "  and p.col001BrandId   = :brand "
-			+ "  and p.col005ProductId = :prod  "
-			+ "order by p.col006Priority desc ")
+			+ "where p.startDate <= :instante "
+			+ "  and p.endDate   >= :instante "
+			+ "  and p.brandId   = :brand "
+			+ "  and p.productId = :prod  "
+			+ "order by p.priority desc ")
 	public List<PricesModel> findByFechaProdBrand(
-						@Param("fecha") Timestamp fecha,
+						@Param("instante") Instant instante,
 						@Param("brand") Long brand,
 						@Param("prod")  Long prod);
 	
-	// consulta genérica
+	// consulta genérica (....de práctica, sin uso)
 	@Query("from PricesModel")
 	@Override 
 	public List<PricesModel> findAll();

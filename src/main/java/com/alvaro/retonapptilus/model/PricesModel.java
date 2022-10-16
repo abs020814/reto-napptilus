@@ -1,7 +1,17 @@
 package com.alvaro.retonapptilus.model;
-
+/*********************
+*
+*
+* Clase Entity PricesModel ,, 
+* 	queda sin Id concreta, y se define en clase aparte PricesPK
+* 
+* 
+* (Alvaro B.S. octubre 2022)
+*
+*
+*/
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.time.Instant;
 
 import javax.persistence.*;
 
@@ -10,90 +20,108 @@ import javax.persistence.*;
 @Table(name="Prices")
 public class PricesModel implements Serializable{
 
-	// hay algún Id?? Id que agrupa varios campos?
 	@Id
 	//foreign key de la cadena del grupo
 	@Column(name="Brand_Id")
-	private Long col001BrandId;
+	private Long brandId;
 	
 	@Id
 	//fecha y hora del inicio de la vigencia
 	@Column(name="Start_Date")
-	private Timestamp col002StartDate;
+	private Instant startDate;
 	
 	@Id
 	//fecha y hora del fin de la vigencia
 	@Column(name="End_Date")
-	private Timestamp col003EndDate;
+	private Instant endDate;
 
-	
+	@Id
 	@Column(name="Price_List")
-	private Long col004PriceList;
+	private Long priceList;
 
 	@Id
 	@Column(name="Product_Id")
-	private Long col005ProductId;
+	private Long productId;
 
 	@Id
 	@Column(name="Priority")
-	private Long col006Priority;
+	private Long priority;
 
+	@Id
 	@Column(name="Price")
-	private Double col007Price;
+	private Double price;
 
+	@Id
 	@Column(name="Curr")
-	private String col008Curr;
+	private String curr;
+
+	public Long getBrandId() {
+		return brandId;
+	}
+
+	public void setBrandId(Long brandId) {
+		this.brandId = brandId;
+	}
+
+	public Instant getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Instant startDate) {
+		this.startDate = startDate;
+	}
+
+	public Instant getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Instant endDate) {
+		this.endDate = endDate;
+	}
+
+	public Long getPriceList() {
+		return priceList;
+	}
+
+	public void setPriceList(Long priceList) {
+		this.priceList = priceList;
+	}
+
+	public Long getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Long productId) {
+		this.productId = productId;
+	}
+
+	public Long getPriority() {
+		return priority;
+	}
+
+	public void setPriority(Long priority) {
+		this.priority = priority;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public String getCurr() {
+		return curr;
+	}
+
+	public void setCurr(String curr) {
+		this.curr = curr;
+	}
 	
 	//// getters & setters....
 	
-	public Long getCol001BrandId() {
-		return col001BrandId;
-	}
-	public void setCol001BrandId(Long col001BrandId) {
-		this.col001BrandId = col001BrandId;
-	}
-	public Timestamp getCol002StartDate() {
-		return col002StartDate;
-	}
-	public void setCol002StartDate(Timestamp col002StartDate) {
-		this.col002StartDate = col002StartDate;
-	}
-	public Timestamp getCol003EndDate() {
-		return col003EndDate;
-	}
-	public void setCol003EndDate(Timestamp col003EndDate) {
-		this.col003EndDate = col003EndDate;
-	}
-	public Long getCol004PriceList() {
-		return col004PriceList;
-	}
-	public void setCol004PriceList(Long col004PriceList) {
-		this.col004PriceList = col004PriceList;
-	}
-	public Long getCol005ProductId() {
-		return col005ProductId;
-	}
-	public void setCol005ProductId(Long col005ProductId) {
-		this.col005ProductId = col005ProductId;
-	}
-	public Long getCol006Priority() {
-		return col006Priority;
-	}
-	public void setCol006Priority(Long col006Priority) {
-		this.col006Priority = col006Priority;
-	}
-	public Double getCol007Price() {
-		return col007Price;
-	}
-	public void setCol007Price(Double col007Price) {
-		this.col007Price = col007Price;
-	}
-	public String getCol008Curr() {
-		return col008Curr;
-	}
-	public void setCol008Curr(String col008Curr) {
-		this.col008Curr = col008Curr;
-	}
+
 	
 	
 	

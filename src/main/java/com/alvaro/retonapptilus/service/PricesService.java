@@ -1,5 +1,15 @@
 package com.alvaro.retonapptilus.service;
-
+/*********************
+*
+*
+* Clase Servicio PricesServicio ,, 
+* 	queda sin Id concreta, y se define en clase aparte PricesPK
+* 
+* 
+* (Alvaro B.S. octubre 2022)
+*
+*
+*/
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -7,6 +17,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,24 +39,36 @@ public class PricesService {
 	 		identificador de producto, identificador de cadena, tarifa a aplicar, fechas de aplicación y precio final a aplicar.
 	 */
 
-	public ReturnParamsService obtenerPrecioMomentoDado(EntryParamsService entryParams) {
-		
+	public ReturnParamsDto obtenerPrecioMomentoDado(EntryParamsDto entryParams) {
+		System.out.println(this.getClass());	
+
 		System.out.println(entryParams);
 		
 		//Se recuperan los registros cuyo intervalo de fechas abarca la fecha de entrada
-		List<PricesModel> pricesResult = pricesRepository.findByFechaProdBrand( entryParams.getFecha(),
+		List<PricesModel> pricesResult = pricesRepository.findByFechaProdBrand( entryParams.getInstante(),
 																					entryParams.getBrandId(),
 																					entryParams.getProductId());
-		ReturnParamsService returnParams = new ReturnParamsService(pricesResult.get(0));
-		return  returnParams;
+		
+		ReturnParamsDto returnParams= new ReturnParamsDto(); 
+		ModelMapper modelMapper = new ModelMapper();
+		if ( !(pricesResult.isEmpty()) ) {
+			returnParams = modelMapper.map(pricesResult.get(0), ReturnParamsDto.class);
+			//returnParams.setAll(pricesResult.get(0));
+			return returnParams;
+		}
+		else {
+			return returnParams;
+		}
 	}
 	
-	//uno cualquiera, para probar
-	public ReturnParamsService encontrarUno() {
+	
+	///////////////PRUEBAS
+	//uno cualquiera, el primero devuelto.. para probar
+	public ReturnParamsDto encontrarUno() {
 		
 		List<PricesModel> pricesResult = pricesRepository.findAll();
 		
-		ReturnParamsService returnParams = new ReturnParamsService(pricesResult.get(0));
+		ReturnParamsDto returnParams = new ReturnParamsDto(pricesResult.get(0));
 		return  returnParams;
 	}
 	
