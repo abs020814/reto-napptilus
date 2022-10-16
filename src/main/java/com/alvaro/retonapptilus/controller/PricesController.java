@@ -44,6 +44,7 @@ public class PricesController {
 	@GetMapping()
 	public ReturnParamsDto obtenerPrecioMomentoDado( EntryParamsDto entryParams) {
 					System.out.println(this.getClass());	
+					System.out.println(entryParams.getInstante());
 		return pricesService.obtenerPrecioMomentoDado(entryParams);
 	}
 	

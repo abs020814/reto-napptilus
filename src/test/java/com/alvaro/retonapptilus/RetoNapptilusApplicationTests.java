@@ -4,6 +4,7 @@ import java.net.InetAddress;
 *
 *
 * Clase de tests ,, 
+*   Se testean los
 * 
 * 
 * (Alvaro B.S. octubre 2022)
@@ -59,8 +60,8 @@ class RetoNapptilusApplicationTests {
         		1);
         Assert.assertEquals(200, result.getStatusCodeValue());
         Assert.assertEquals( (Long) Long.parseLong("1") ,result.getBody().getBrandId());
-        Assert.assertEquals( Instant.parse("2020-06-13T22:00:00Z") ,result.getBody().getStartDate());
-        Assert.assertEquals( Instant.parse("2020-12-31T22:59:59.900Z") ,result.getBody().getEndDate());
+        Assert.assertEquals( Instant.parse("2020-06-14T00:00:00Z") ,result.getBody().getStartDate());
+        Assert.assertEquals( Instant.parse("2020-12-31T23:59:59.900Z") ,result.getBody().getEndDate());
         Assert.assertEquals( (Long) Long.parseLong("1") ,result.getBody().getPriceList());
         Assert.assertEquals( (Long) Long.parseLong("35455") ,result.getBody().getProductId());
         Assert.assertEquals( (Double) Double.parseDouble("35.5") ,result.getBody().getPrice());
@@ -73,8 +74,8 @@ class RetoNapptilusApplicationTests {
         		1);
 		Assert.assertEquals(200, result.getStatusCodeValue());
 		Assert.assertEquals( (Long) Long.parseLong("1") ,result.getBody().getBrandId());
-		Assert.assertEquals( Instant.parse("2020-06-14T13:00:00Z") ,result.getBody().getStartDate());
-		Assert.assertEquals( Instant.parse("2020-06-14T16:30:00Z") ,result.getBody().getEndDate());
+		Assert.assertEquals( Instant.parse("2020-06-14T15:00:00Z") ,result.getBody().getStartDate());
+		Assert.assertEquals( Instant.parse("2020-06-14T18:30:00Z") ,result.getBody().getEndDate());
 		Assert.assertEquals( (Long) Long.parseLong("2") ,result.getBody().getPriceList());
 		Assert.assertEquals( (Long) Long.parseLong("35455") ,result.getBody().getProductId());
 		Assert.assertEquals( (Double) Double.parseDouble("25.45") ,result.getBody().getPrice()); 		
@@ -88,8 +89,8 @@ class RetoNapptilusApplicationTests {
         		1);
 		Assert.assertEquals(200, result.getStatusCodeValue());
 		Assert.assertEquals( (Long) Long.parseLong("1") ,result.getBody().getBrandId());
-		Assert.assertEquals( Instant.parse("2020-06-13T22:00:00Z") ,result.getBody().getStartDate());
-		Assert.assertEquals( Instant.parse("2020-12-31T22:59:59.900Z") ,result.getBody().getEndDate());
+		Assert.assertEquals( Instant.parse("2020-06-14T00:00:00Z") ,result.getBody().getStartDate());
+		Assert.assertEquals( Instant.parse("2020-12-31T23:59:59.900Z") ,result.getBody().getEndDate());
 		Assert.assertEquals( (Long) Long.parseLong("1") ,result.getBody().getPriceList());
 		Assert.assertEquals( (Long) Long.parseLong("35455") ,result.getBody().getProductId());
 		Assert.assertEquals( (Double) Double.parseDouble("35.5") ,result.getBody().getPrice());
@@ -102,11 +103,11 @@ class RetoNapptilusApplicationTests {
         		1);
 		Assert.assertEquals(200, result.getStatusCodeValue());
 		Assert.assertEquals( (Long) Long.parseLong("1") ,result.getBody().getBrandId());
-		Assert.assertEquals( Instant.parse("2020-06-13T22:00:00Z") ,result.getBody().getStartDate());
-		Assert.assertEquals( Instant.parse("2020-12-31T22:59:59.900Z") ,result.getBody().getEndDate());
-		Assert.assertEquals( (Long) Long.parseLong("1") ,result.getBody().getPriceList());
+		Assert.assertEquals( Instant.parse("2020-06-15T00:00:00Z") ,result.getBody().getStartDate());
+		Assert.assertEquals( Instant.parse("2020-06-15T11:00:00.0Z") ,result.getBody().getEndDate());
+		Assert.assertEquals( (Long) Long.parseLong("3") ,result.getBody().getPriceList());
 		Assert.assertEquals( (Long) Long.parseLong("35455") ,result.getBody().getProductId());
-		Assert.assertEquals( (Double) Double.parseDouble("35.5") ,result.getBody().getPrice());
+		Assert.assertEquals( (Double) Double.parseDouble("30.5") ,result.getBody().getPrice());
 	}
 	@Test
 	void testPeticion05() throws URISyntaxException  {
@@ -116,8 +117,8 @@ class RetoNapptilusApplicationTests {
         		1);
 		Assert.assertEquals(200, result.getStatusCodeValue());
 		Assert.assertEquals( (Long) Long.parseLong("1") ,result.getBody().getBrandId());
-		Assert.assertEquals( Instant.parse("2020-06-15T14:00:00Z") ,result.getBody().getStartDate());
-		Assert.assertEquals( Instant.parse("2020-12-31T22:59:59.900Z") ,result.getBody().getEndDate());
+		Assert.assertEquals( Instant.parse("2020-06-15T16:00:00Z") ,result.getBody().getStartDate());
+		Assert.assertEquals( Instant.parse("2020-12-31T23:59:59.900Z") ,result.getBody().getEndDate());
 		Assert.assertEquals( (Long) Long.parseLong("4") ,result.getBody().getPriceList());
 		Assert.assertEquals( (Long) Long.parseLong("35455") ,result.getBody().getProductId());
 		Assert.assertEquals( (Double) Double.parseDouble("38.95") ,result.getBody().getPrice());	

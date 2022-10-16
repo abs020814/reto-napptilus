@@ -42,7 +42,7 @@ public class PricesService {
 	public ReturnParamsDto obtenerPrecioMomentoDado(EntryParamsDto entryParams) {
 		System.out.println(this.getClass());	
 
-		System.out.println(entryParams);
+		System.out.println(entryParams.getInstante());
 		
 		//Se recuperan los registros cuyo intervalo de fechas abarca la fecha de entrada
 		List<PricesModel> pricesResult = pricesRepository.findByFechaProdBrand( entryParams.getInstante(),
@@ -52,6 +52,7 @@ public class PricesService {
 		ReturnParamsDto returnParams= new ReturnParamsDto(); 
 		ModelMapper modelMapper = new ModelMapper();
 		if ( !(pricesResult.isEmpty()) ) {
+							System.out.println(pricesResult.get(0).getStartDate());
 			returnParams = modelMapper.map(pricesResult.get(0), ReturnParamsDto.class);
 			//returnParams.setAll(pricesResult.get(0));
 			return returnParams;
