@@ -1,6 +1,5 @@
 package com.alvaro.retonapptilus.service;
 
-import java.sql.Timestamp;
 import java.time.Instant;
 
 public class EntryParamsDto {

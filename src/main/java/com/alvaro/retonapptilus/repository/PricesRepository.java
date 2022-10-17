@@ -9,7 +9,6 @@ package com.alvaro.retonapptilus.repository;
  *
  *
  */
-import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
 

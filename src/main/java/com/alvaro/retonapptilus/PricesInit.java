@@ -1,13 +1,11 @@
 package com.alvaro.retonapptilus;
-import java.time.Instant;
-import java.util.concurrent.ThreadLocalRandom;
 
 /*********************
 *
 *
 * Clase Configuration, donde inserto los datos de prueba ,, 
 * 
-* 	INSERTO TAL CUAL LA INFORMACIÓN FACILITADA. SIN EMBARGO VIENDO EN LA CONSOLA H2, SE VERA QUE LA HORA SE DIFERENTE, 
+* 	INSERTO TAL CUAL LA INFORMACIÓN FACILITADA. SIN EMBARGO VIENDO EN LA CONSOLA H2, SE VERA QUE LA HORA ES DIFERENTE, 
 * 	ES DEBIDO A QUE LA CLASE INSTANT ASUME FECHA+HORA EN HORARIO UTC, PERO EL TIMESTAMP DE LA BASE DE DATOS ES HORA LOCAL
 *   Y POR ESO LO TRANSFORMA, UNICAMENTE A NIVEL INTERNO DE LA BBDD H2 POR TANTO ES TRANSPARENTE DE CARA A LOS RESULTADOS
 * 
@@ -21,6 +19,8 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
+import java.time.Instant;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Configuration
 public class PricesInit {
